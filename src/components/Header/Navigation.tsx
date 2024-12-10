@@ -17,6 +17,14 @@ export function Navigation() {
   const activeClass = 'bg-white text-black border border-white';
   const inactiveClass = 'text-white';
 
+  // Vérifiez si l'URL correspond à '/intro' ou '/signup'
+  const isExcludedRoute = location.pathname === '/intro' || location.pathname === '/signup';
+
+  // Si la route actuelle est '/intro' ou '/signup', ne pas afficher le header
+  if (isExcludedRoute) {
+    return null; // Cela masquera le composant Header sur ces routes
+  }
+
   return (
     <nav className="flex gap-8">
       {/* Lien pour E-commerce */}
